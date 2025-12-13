@@ -1,0 +1,167 @@
+import React, { useState, useEffect } from "react";
+import SweetCard from "../components/SweetCard";
+import { getAllSweets, searchSweets } from "../services/sweetService";
+import "./Home.css";
+
+/**
+ * Home Page Component
+ * Displays all sweets with search and filter functionality
+ */
+const Home = () => {
+  const [sweets, setSweets] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  // Search and filter state
+  const [searchName, setSearchName] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+
+  const categories = [
+    "Chocolate",
+    "Candy",
+    "Gummy",
+    "Hard Candy",
+    "Lollipop",
+    "Toffee",
+    "Other",
+  ];
+
+  const loadSweets = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      const data = await getAllSweets();
+      setSweets(data);
+    } catch (err) {
+      setError(err.response?.data?.message || "Failed to load sweets");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadSweets();
+  }, []);
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const params = {};
+      if (searchName) params.name = searchName;
+      if (selectedCategory) params.category = selectedCategory;
+      if (minPrice) params.minPrice = minPrice;
+      if (maxPrice) params.maxPrice = maxPrice;
+
+      const data = await searchSweets(params);
+      setSweets(data);
+    } catch (err) {
+      setError(err.response?.data?.message || "Search failed");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleReset = () => {
+    setSearchName("");
+    setSelectedCategory("");
+    setMinPrice("");
+    setMaxPrice("");
+    loadSweets();
+  };
+
+  return (
+    <div className="home-container">
+      <div className="hero-section">
+        <h1>🍬 Welcome to Sweet Shop</h1>
+        <p>Discover delicious sweets and treats!</p>
+      </div>
+
+      <div className="search-section">
+        <h2>Search & Filter</h2>
+        <form onSubmit={handleSearch} className="search-form">
+          <div className="search-row">
+            <input
+              type="text"
+              placeholder="Search by name..."
+              value={searchName}
+              onChange={(e) => setSearchName(e.target.value)}
+              className="search-input"
+            />
+
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="category-select"
+            >
+              <option value="">All Categories</option>
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="search-row">
+            <input
+              type="number"
+              placeholder="Min Price"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
+              min="0"
+              step="0.01"
+              className="price-input"
+            />
+
+            <input
+              type="number"
+              placeholder="Max Price"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
+              min="0"
+              step="0.01"
+              className="price-input"
+            />
+          </div>
+
+          <div className="search-buttons">
+            <button type="submit" className="btn-search">
+              🔍 Search
+            </button>
+            <button type="button" onClick={handleReset} className="btn-reset">
+              🔄 Reset
+            </button>
+          </div>
+        </form>
+      </div>
+
+      {error && <div className="error-message">{error}</div>}
+
+      {loading ? (
+        <div className="loading-container">
+          <div className="spinner"></div>
+          <p>Loading sweets...</p>
+        </div>
+      ) : sweets.length === 0 ? (
+        <div className="no-sweets">
+          <h3>No sweets found</h3>
+          <p>Try adjusting your search filters</p>
+        </div>
+      ) : (
+        <div className="sweets-grid">
+          {sweets.map((sweet) => (
+            <SweetCard key={sweet._id} sweet={sweet} onPurchase={loadSweets} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Home;
