@@ -1,6 +1,9 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
+// Fallback secret for tests if JWT_SECRET is not provided
+const JWT_SECRET = process.env.JWT_SECRET || "test_jwt_secret";
+
 /**
  * Middleware to protect routes that require authentication
  * Verifies JWT token and attaches user to request object
@@ -17,7 +20,7 @@ const protect = async (req, res, next) => {
       token = req.headers.authorization.split(" ")[1];
 
       // Verify token
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const decoded = jwt.verify(token, JWT_SECRET);
 
       // Get user from token
       req.user = await User.findById(decoded.id).select("-password");

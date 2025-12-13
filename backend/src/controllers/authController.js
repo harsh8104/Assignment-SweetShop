@@ -1,13 +1,16 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
+// Fallback secret for test environments to avoid undefined JWT_SECRET
+const JWT_SECRET = process.env.JWT_SECRET || "test_jwt_secret";
+
 /**
  * Generate JWT token
  * @param {string} id - User ID
  * @returns {string} JWT token
  */
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id }, JWT_SECRET, {
     expiresIn: "30d",
   });
 };
