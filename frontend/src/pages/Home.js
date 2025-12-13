@@ -78,8 +78,8 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="hero-section">
-        <h1>🍬 Welcome to Sweet Shop</h1>
-        <p>Discover delicious sweets and treats!</p>
+        <h1>Welcome to Sweet Shop</h1>
+        <p>Discover and purchase your favorite sweets</p>
       </div>
 
       <div className="search-section">
@@ -132,10 +132,10 @@ const Home = () => {
 
           <div className="search-buttons">
             <button type="submit" className="btn-search">
-              🔍 Search
+              Search
             </button>
             <button type="button" onClick={handleReset} className="btn-reset">
-              🔄 Reset
+              Reset
             </button>
           </div>
         </form>

@@ -22,7 +22,7 @@ const SweetCard = ({ sweet, onPurchase, showActions = true }) => {
 
     try {
       await purchaseSweet(sweet._id, quantity);
-      setMessage("Purchase successful! 🎉");
+      setMessage("Purchase successful!");
       setQuantity(1);
       if (onPurchase) {
         onPurchase();

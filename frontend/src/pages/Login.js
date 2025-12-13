@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1>🍬 Welcome Back</h1>
+        <h1>Welcome Back</h1>
         <p className="auth-subtitle">Login to your Sweet Shop account</p>
 
         {error && <div className="error-message">{error}</div>}

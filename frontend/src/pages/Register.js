@@ -61,8 +61,8 @@ const Register = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1>🍬 Join Sweet Shop</h1>
-        <p className="auth-subtitle">Create your account</p>
+        <h1>Create Account</h1>
+        <p className="auth-subtitle">Join Sweet Shop and start exploring</p>
 
         {error && <div className="error-message">{error}</div>}
 

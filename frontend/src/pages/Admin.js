@@ -67,10 +67,10 @@ const Admin = () => {
     try {
       if (editingSweet) {
         await updateSweet(editingSweet._id, formData);
-        setMessage("Sweet updated successfully! ✅");
+        setMessage("Sweet updated successfully!");
       } else {
         await createSweet(formData);
-        setMessage("Sweet created successfully! ✅");
+        setMessage("Sweet created successfully!");
       }
 
       resetForm();
@@ -98,7 +98,7 @@ const Admin = () => {
     if (window.confirm("Are you sure you want to delete this sweet?")) {
       try {
         await deleteSweet(id);
-        setMessage("Sweet deleted successfully! ✅");
+        setMessage("Sweet deleted successfully!");
         loadSweets();
       } catch (err) {
         setMessage(err.response?.data?.message || "Delete failed");
@@ -111,7 +111,7 @@ const Admin = () => {
     if (quantity && !isNaN(quantity) && parseInt(quantity) > 0) {
       try {
         await restockSweet(id, parseInt(quantity));
-        setMessage("Restocked successfully! ✅");
+        setMessage("Restocked successfully!");
         loadSweets();
       } catch (err) {
         setMessage(err.response?.data?.message || "Restock failed");
@@ -139,17 +139,19 @@ const Admin = () => {
   return (
     <div className="admin-container">
       <div className="admin-header">
-        <h1>🔧 Admin Panel</h1>
+        <h1>Admin Panel</h1>
         <button onClick={openAddModal} className="btn-add">
-          + Add New Sweet
+          <span>+</span> Add New Sweet
         </button>
       </div>
 
       {message && (
         <div
-          className={`message ${message.includes("✅") ? "success" : "error"}`}
+          className={`message ${
+            message.includes("successfully") ? "success" : "error"
+          }`}
         >
-          {message}
+          {message.replace(/✅/g, "")}
         </div>
       )}
 
@@ -197,21 +199,21 @@ const Admin = () => {
                       className="btn-action btn-edit"
                       title="Edit"
                     >
-                      ✏️
+                      Edit
                     </button>
                     <button
                       onClick={() => handleRestock(sweet._id)}
                       className="btn-action btn-restock"
                       title="Restock"
                     >
-                      📦
+                      Restock
                     </button>
                     <button
                       onClick={() => handleDelete(sweet._id)}
                       className="btn-action btn-delete"
                       title="Delete"
                     >
-                      🗑️
+                      Delete
                     </button>
                   </td>
                 </tr>
