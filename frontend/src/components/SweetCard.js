@@ -11,6 +11,8 @@ const SweetCard = ({ sweet, onPurchase, showActions = true }) => {
   const [purchasing, setPurchasing] = useState(false);
   const [message, setMessage] = useState("");
 
+  const isOutOfStock = !sweet?.quantity || sweet.quantity <= 0;
+
   const handlePurchase = async () => {
     if (quantity < 1 || quantity > sweet.quantity) {
       setMessage("Invalid quantity");
@@ -68,7 +70,7 @@ const SweetCard = ({ sweet, onPurchase, showActions = true }) => {
             <div className="quantity-selector">
               <button
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                disabled={sweet.quantity === 0}
+                disabled={isOutOfStock}
               >
                 -
               </button>
@@ -78,13 +80,13 @@ const SweetCard = ({ sweet, onPurchase, showActions = true }) => {
                 onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
                 min="1"
                 max={sweet.quantity}
-                disabled={sweet.quantity === 0}
+                disabled={isOutOfStock}
               />
               <button
                 onClick={() =>
                   setQuantity(Math.min(sweet.quantity, quantity + 1))
                 }
-                disabled={sweet.quantity === 0}
+                disabled={isOutOfStock}
               >
                 +
               </button>
@@ -93,7 +95,7 @@ const SweetCard = ({ sweet, onPurchase, showActions = true }) => {
             <button
               className="btn-purchase"
               onClick={handlePurchase}
-              disabled={sweet.quantity === 0 || purchasing}
+              disabled={isOutOfStock || purchasing}
             >
               {purchasing ? (
                 <>

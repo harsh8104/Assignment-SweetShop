@@ -13,14 +13,14 @@ const {
 const { protect, admin } = require("../middleware/auth");
 
 // Public search route (before :id route to avoid conflicts)
-router.get("/search", protect, searchSweets);
+router.get("/search", searchSweets);
 
 // Sweet CRUD routes
-router.route("/").get(protect, getAllSweets).post(protect, admin, createSweet);
+router.route("/").get(getAllSweets).post(protect, admin, createSweet);
 
 router
   .route("/:id")
-  .get(protect, getSweetById)
+  .get(getSweetById)
   .put(protect, admin, updateSweet)
   .delete(protect, admin, deleteSweet);
 
