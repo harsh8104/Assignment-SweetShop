@@ -124,9 +124,9 @@ npm test
 ### Super Admin Access
 
 - Only one super admin exists. It is controlled by environment variables:
-	- `SUPER_ADMIN_EMAIL` (default: `admin@sweetshop.com`)
-	- `SUPER_ADMIN_PASSWORD` (default: `admin@123` — change this in production)
-	- `SUPER_ADMIN_USERNAME` (default: `Super Admin`)
+  - `SUPER_ADMIN_EMAIL` (default: `admin@sweetshop.com`)
+  - `SUPER_ADMIN_PASSWORD` (default: `admin@123` — change this in production)
+  - `SUPER_ADMIN_USERNAME` (default: `Super Admin`)
 - Use `POST /api/auth/admin-login` with those credentials to obtain an admin JWT.
 - Regular registration/login can never create or retain admin rights; non-super-admin accounts are demoted if flagged as admin.
 
