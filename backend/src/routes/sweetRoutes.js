@@ -12,11 +12,11 @@ const {
 } = require("../controllers/sweetController");
 const { protect, admin } = require("../middleware/auth");
 
-// Public search route (before :id route to avoid conflicts)
-router.get("/search", searchSweets);
+// Protected search route (before :id route to avoid conflicts)
+router.get("/search", protect, searchSweets);
 
 // Sweet CRUD routes
-router.route("/").get(getAllSweets).post(protect, admin, createSweet);
+router.route("/").get(protect, getAllSweets).post(protect, admin, createSweet);
 
 router
   .route("/:id")

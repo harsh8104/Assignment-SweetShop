@@ -115,14 +115,28 @@ npm test
 
 ### Authentication Endpoints
 
+### Authentication Endpoints
+
 - `POST /api/auth/register` - Register a new user
 - `POST /api/auth/login` - Login user
+- `POST /api/auth/admin-login` - Super admin login (uses env-configured credentials)
+
+### Super Admin Access
+
+- Only one super admin exists. It is controlled by environment variables:
+	- `SUPER_ADMIN_EMAIL` (default: `admin@sweetshop.com`)
+	- `SUPER_ADMIN_PASSWORD` (default: `admin@123` — change this in production)
+	- `SUPER_ADMIN_USERNAME` (default: `Super Admin`)
+- Use `POST /api/auth/admin-login` with those credentials to obtain an admin JWT.
+- Regular registration/login can never create or retain admin rights; non-super-admin accounts are demoted if flagged as admin.
+
+### Sweets Endpoints (Protected)
 
 ### Sweets Endpoints (Protected)
 
 - `POST /api/sweets` - Add a new sweet (Admin)
-- `GET /api/sweets` - Get all sweets
-- `GET /api/sweets/search` - Search sweets
+- `GET /api/sweets` - Get all sweets (auth required)
+- `GET /api/sweets/search` - Search sweets (auth required)
 - `PUT /api/sweets/:id` - Update sweet (Admin)
 - `DELETE /api/sweets/:id` - Delete sweet (Admin)
 
