@@ -32,6 +32,19 @@ export const login = async (credentials) => {
 };
 
 /**
+ * Login super admin
+ * @param {Object} credentials - Super admin login credentials
+ * @returns {Promise} User data with token
+ */
+export const adminLogin = async (credentials) => {
+  const response = await api.post("/auth/admin-login", credentials);
+  if (response.data.token) {
+    localStorage.setItem("user", JSON.stringify(response.data));
+  }
+  return response.data;
+};
+
+/**
  * Logout user
  */
 export const logout = () => {

@@ -2,6 +2,7 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 import {
   getCurrentUser,
   login as loginService,
+  adminLogin as adminLoginService,
   register as registerService,
   logout as logoutService,
 } from "../services/authService";
@@ -47,6 +48,16 @@ export const AuthProvider = ({ children }) => {
   };
 
   /**
+   * Login super admin
+   * @param {Object} credentials - Email and password
+   */
+  const adminLogin = async (credentials) => {
+    const userData = await adminLoginService(credentials);
+    setUser(userData);
+    return userData;
+  };
+
+  /**
    * Register new user
    * @param {Object} userData - Registration data
    */
@@ -76,6 +87,7 @@ export const AuthProvider = ({ children }) => {
     user,
     loading,
     login,
+    adminLogin,
     register,
     logout,
     isAdmin,
