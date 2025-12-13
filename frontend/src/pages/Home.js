@@ -78,32 +78,32 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="hero-section">
-        <div className="hero-icon">
-          <svg
-            width="80"
-            height="80"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-              stroke="#6366f1"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="#e0e7ff"
-            />
-            <circle cx="12" cy="9" r="2.5" fill="#6366f1" />
-            <path
-              d="M15.5 8.5c.5.5 1 1.5.5 2.5M8.5 8.5c-.5.5-1 1.5-.5 2.5"
-              stroke="#6366f1"
-              strokeWidth="1.2"
-              strokeLinecap="round"
-            />
-          </svg>
+        <div className="hero-top">
+          <div className="hero-icon">
+            <svg
+              width="80"
+              height="80"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                stroke="#6366f1"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="#e0e7ff"
+              />
+              <circle cx="12" cy="9" r="2.5" fill="#6366f1" />
+            </svg>
+          </div>
+          <div className="hero-chips">
+            <span className="hero-chip">Curated treats</span>
+            <span className="hero-chip">Fresh arrivals daily</span>
+            <span className="hero-chip">Made locally</span>
+          </div>
         </div>
-        <div className="hero-badge">Curated treats · Fresh arrivals daily</div>
         <h1>Welcome to Sweet Shop</h1>
         <p>Discover artisanal sweets crafted with care and delivered fresh.</p>
         <div className="hero-actions">

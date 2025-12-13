@@ -1,19 +1,82 @@
 .admin-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2.5rem 2rem 2rem;
 }
-
-.admin-header {
+.admin-hero {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+  margin-bottom: 1.5rem;
 }
 
-.admin-header h1 {
-  margin: 0;
+.admin-title {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.admin-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.25);
+}
+
+.admin-title h1 {
+  margin: 0 0 0.35rem 0;
   color: var(--text);
+  font-size: 1.9rem;
+}
+
+.admin-subtitle {
+  margin: 0 0 0.65rem 0;
+  color: var(--text-soft);
+  font-weight: 500;
+}
+
+.admin-stats {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.stat-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-flex;
+}
+
+.stat-dot.primary { background: var(--primary); }
+.stat-dot.warning { background: #f59e0b; }
+.stat-dot.danger { background: #ef4444; }
+
+.admin-actions {
   display: flex;
   align-items: center;
 }

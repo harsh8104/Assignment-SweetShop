@@ -136,79 +136,103 @@ const Admin = () => {
     setShowModal(true);
   };
 
+  const totalCount = sweets.length;
+  const lowStockCount = sweets.filter(
+    (s) => s.quantity > 0 && s.quantity < 10
+  ).length;
+  const outOfStockCount = sweets.filter((s) => s.quantity === 0).length;
+
   return (
     <div className="admin-container">
-      <div className="admin-header">
-        <h1>
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ marginRight: "12px", verticalAlign: "middle" }}
-          >
-            <rect
-              x="3"
-              y="3"
-              width="7"
-              height="7"
-              rx="1"
-              stroke="#6366f1"
-              strokeWidth="2"
+      <div className="admin-hero">
+        <div className="admin-title">
+          <div className="admin-icon">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
               fill="none"
-            />
-            <rect
-              x="14"
-              y="3"
-              width="7"
-              height="7"
-              rx="1"
-              stroke="#6366f1"
-              strokeWidth="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="3"
+                y="3"
+                width="7"
+                height="7"
+                rx="1"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <rect
+                x="14"
+                y="3"
+                width="7"
+                height="7"
+                rx="1"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <rect
+                x="3"
+                y="14"
+                width="7"
+                height="7"
+                rx="1"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <rect
+                x="14"
+                y="14"
+                width="7"
+                height="7"
+                rx="1"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1>Admin Panel</h1>
+            <p className="admin-subtitle">
+              Add, edit, or restock sweets with a clean, focused view.
+            </p>
+            <div className="admin-stats">
+              <span className="stat-chip">
+                <span className="stat-dot primary"></span>
+                Total: {totalCount}
+              </span>
+              <span className="stat-chip">
+                <span className="stat-dot warning"></span>
+                Low stock: {lowStockCount}
+              </span>
+              <span className="stat-chip">
+                <span className="stat-dot danger"></span>
+                Out: {outOfStockCount}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="admin-actions">
+          <button onClick={openAddModal} className="btn-add">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
               fill="none"
-            />
-            <rect
-              x="3"
-              y="14"
-              width="7"
-              height="7"
-              rx="1"
-              stroke="#6366f1"
-              strokeWidth="2"
-              fill="none"
-            />
-            <rect
-              x="14"
-              y="14"
-              width="7"
-              height="7"
-              rx="1"
-              stroke="#6366f1"
-              strokeWidth="2"
-              fill="none"
-            />
-          </svg>
-          Admin Panel
-        </h1>
-        <button onClick={openAddModal} className="btn-add">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ marginRight: "6px" }}
-          >
-            <path
-              d="M12 5v14M5 12h14"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
-          Add New Sweet
-        </button>
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ marginRight: "6px" }}
+            >
+              <path
+                d="M12 5v14M5 12h14"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+            Add New Sweet
+          </button>
+        </div>
       </div>
 
       {message && (
