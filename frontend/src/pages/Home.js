@@ -103,11 +103,20 @@ const Home = () => {
             />
           </svg>
         </div>
+        <div className="hero-badge">Curated treats · Fresh arrivals daily</div>
         <h1>Welcome to Sweet Shop</h1>
-        <p>Discover and purchase your favorite sweets</p>
+        <p>Discover artisanal sweets crafted with care and delivered fresh.</p>
+        <div className="hero-actions">
+          <a className="btn-hero" href="#search">
+            Browse collection
+          </a>
+          <a className="btn-hero ghost" href="#search">
+            Search & filter
+          </a>
+        </div>
       </div>
 
-      <div className="search-section">
+      <div className="search-section" id="search">
         <h2>Search & Filter</h2>
         <form onSubmit={handleSearch} className="search-form">
           <div className="search-row">

@@ -84,13 +84,6 @@ const Register = () => {
               strokeLinecap="round"
               fill="none"
             />
-            <circle cx="17" cy="7" r="3" fill="#6366f1" />
-            <path
-              d="M16 7h2M17 6v2"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
           </svg>
         </div>
         <h1>Create Account</h1>
