@@ -18,6 +18,7 @@ This project is a comprehensive Sweet Shop Management System built following Tes
 ## Tech Stack
 
 ### Backend
+
 - **Node.js** with **Express.js** - RESTful API server
 - **MongoDB** with **Mongoose** - Database and ODM
 - **JWT** - Token-based authentication
@@ -25,6 +26,7 @@ This project is a comprehensive Sweet Shop Management System built following Tes
 - **Jest** & **Supertest** - Testing framework
 
 ### Frontend
+
 - **React.js** - UI library
 - **React Router** - Client-side routing
 - **Axios** - HTTP client
@@ -181,7 +183,7 @@ Assignment/
 
 ## Screenshots
 
-*(Screenshots will be added after implementation)*
+_(Screenshots will be added after implementation)_
 
 ## License
 
@@ -193,4 +195,4 @@ Developed as part of a TDD coding kata assessment.
 
 ---
 
-*Built with ❤️ using MERN Stack and Test-Driven Development*
+_Built with ❤️ using MERN Stack and Test-Driven Development_
