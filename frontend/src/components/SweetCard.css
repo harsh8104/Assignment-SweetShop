@@ -1,3 +1,12 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .sweet-card {
   background: white;
   border-radius: 16px;
@@ -162,6 +171,9 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-purchase:hover:not(:disabled) {

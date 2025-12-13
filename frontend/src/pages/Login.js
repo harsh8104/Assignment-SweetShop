@@ -43,6 +43,31 @@ const Login = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
+        <div className="auth-icon">
+          <svg
+            width="64"
+            height="64"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="8"
+              r="4"
+              stroke="#6366f1"
+              strokeWidth="2"
+              fill="none"
+            />
+            <path
+              d="M4 20c0-4 4-6 8-6s8 2 8 6"
+              stroke="#6366f1"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+            />
+          </svg>
+        </div>
         <h1>Welcome Back</h1>
         <p className="auth-subtitle">Login to your Sweet Shop account</p>
 

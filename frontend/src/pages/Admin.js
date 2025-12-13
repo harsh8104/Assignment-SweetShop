@@ -139,9 +139,75 @@ const Admin = () => {
   return (
     <div className="admin-container">
       <div className="admin-header">
-        <h1>Admin Panel</h1>
+        <h1>
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ marginRight: "12px", verticalAlign: "middle" }}
+          >
+            <rect
+              x="3"
+              y="3"
+              width="7"
+              height="7"
+              rx="1"
+              stroke="#6366f1"
+              strokeWidth="2"
+              fill="none"
+            />
+            <rect
+              x="14"
+              y="3"
+              width="7"
+              height="7"
+              rx="1"
+              stroke="#6366f1"
+              strokeWidth="2"
+              fill="none"
+            />
+            <rect
+              x="3"
+              y="14"
+              width="7"
+              height="7"
+              rx="1"
+              stroke="#6366f1"
+              strokeWidth="2"
+              fill="none"
+            />
+            <rect
+              x="14"
+              y="14"
+              width="7"
+              height="7"
+              rx="1"
+              stroke="#6366f1"
+              strokeWidth="2"
+              fill="none"
+            />
+          </svg>
+          Admin Panel
+        </h1>
         <button onClick={openAddModal} className="btn-add">
-          <span>+</span> Add New Sweet
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ marginRight: "6px" }}
+          >
+            <path
+              d="M12 5v14M5 12h14"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+          Add New Sweet
         </button>
       </div>
 
@@ -199,6 +265,23 @@ const Admin = () => {
                       className="btn-action btn-edit"
                       title="Edit"
                     >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginRight: "4px" }}
+                      >
+                        <path
+                          d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          fill="none"
+                        />
+                      </svg>
                       Edit
                     </button>
                     <button
@@ -206,6 +289,36 @@ const Admin = () => {
                       className="btn-action btn-restock"
                       title="Restock"
                     >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginRight: "4px" }}
+                      >
+                        <path
+                          d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          fill="none"
+                        />
+                        <path
+                          d="M12 11v6M9 14h6"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M16 3l-4 4-4-4"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          fill="none"
+                        />
+                      </svg>
                       Restock
                     </button>
                     <button
@@ -213,6 +326,23 @@ const Admin = () => {
                       className="btn-action btn-delete"
                       title="Delete"
                     >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginRight: "4px" }}
+                      >
+                        <path
+                          d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          fill="none"
+                        />
+                      </svg>
                       Delete
                     </button>
                   </td>

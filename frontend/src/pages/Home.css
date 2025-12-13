@@ -13,6 +13,17 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
 }
 
+.hero-icon {
+  margin: 0 auto 1.5rem;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+}
+
+.hero-icon svg {
+  filter: drop-shadow(0 4px 6px rgba(99, 102, 241, 0.15));
+}
+
 .hero-section h1 {
   font-size: 2.5rem;
   margin: 0 0 0.75rem 0;
@@ -77,6 +88,13 @@
 .search-buttons {
   display: flex;
   gap: 1rem;
+}
+
+.btn-search,
+.btn-reset {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-search,
@@ -148,6 +166,9 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .no-sweets h3 {

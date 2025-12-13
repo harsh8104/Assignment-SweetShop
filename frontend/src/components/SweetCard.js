@@ -95,7 +95,70 @@ const SweetCard = ({ sweet, onPurchase, showActions = true }) => {
               onClick={handlePurchase}
               disabled={sweet.quantity === 0 || purchasing}
             >
-              {purchasing ? "Processing..." : "Purchase"}
+              {purchasing ? (
+                <>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{
+                      marginRight: "6px",
+                      animation: "spin 1s linear infinite",
+                    }}
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeDasharray="31.4 31.4"
+                      strokeDashoffset="0"
+                      fill="none"
+                    />
+                  </svg>
+                  Processing...
+                </>
+              ) : (
+                <>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ marginRight: "6px" }}
+                  >
+                    <circle
+                      cx="9"
+                      cy="19"
+                      r="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <circle
+                      cx="18"
+                      cy="19"
+                      r="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </svg>
+                  Purchase
+                </>
+              )}
             </button>
           </div>
         )}
