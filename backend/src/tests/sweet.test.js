@@ -7,6 +7,7 @@ const Sweet = require("../models/Sweet");
 let userToken;
 let adminToken;
 let sweetId;
+let existingSweetId;
 
 // Test database connection
 beforeAll(async () => {
@@ -401,6 +402,53 @@ describe("Sweet API Tests", () => {
         .expect(400);
 
       expect(response.body.message).toContain("Invalid quantity");
+    });
+
+    it("should fail for non-existent sweet", async () => {
+      const fakeId = new mongoose.Types.ObjectId();
+
+      await request(app)
+        .post(`/api/sweets/${fakeId}/restock`)
+        .set("Authorization", `Bearer ${adminToken}`)
+        .send({ quantity: 5 })
+        .expect(404);
+    });
+  });
+
+  describe("GET /api/sweets/:id", () => {
+    beforeEach(async () => {
+      const sweet = await Sweet.create({
+        name: "Detail Sweet",
+        category: "Candy",
+        price: 2.5,
+        quantity: 20,
+      });
+      existingSweetId = sweet._id;
+    });
+
+    it("should return sweet details with authentication", async () => {
+      const response = await request(app)
+        .get(`/api/sweets/${existingSweetId}`)
+        .set("Authorization", `Bearer ${userToken}`)
+        .expect(200);
+
+      expect(response.body._id).toBe(String(existingSweetId));
+      expect(response.body.name).toBe("Detail Sweet");
+    });
+
+    it("should fail without authentication", async () => {
+      await request(app)
+        .get(`/api/sweets/${existingSweetId}`)
+        .expect(401);
+    });
+
+    it("should return 404 for missing sweet", async () => {
+      const fakeId = new mongoose.Types.ObjectId();
+
+      await request(app)
+        .get(`/api/sweets/${fakeId}`)
+        .set("Authorization", `Bearer ${userToken}`)
+        .expect(404);
     });
   });
 });
