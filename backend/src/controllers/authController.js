@@ -79,13 +79,19 @@ const respondWithUser = (user, res) => {
  */
 const registerUser = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, isAdmin } = req.body;
 
     // Validation
     if (!username || !email || !password) {
       return res
         .status(400)
         .json({ message: "Please provide all required fields" });
+    }
+
+    if (password.length < 8) {
+      return res
+        .status(400)
+        .json({ message: "Password must be at least 8 characters" });
     }
 
     if (email === SUPER_ADMIN_EMAIL) {
@@ -107,7 +113,7 @@ const registerUser = async (req, res) => {
       username,
       email,
       password,
-      isAdmin: false,
+      isAdmin: Boolean(isAdmin),
     });
 
     if (user) {

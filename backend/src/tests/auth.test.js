@@ -72,6 +72,21 @@ describe("Auth API Tests", () => {
       expect(response.body).toHaveProperty("message");
     });
 
+    it("should reject password shorter than 8 characters", async () => {
+      const userData = {
+        username: "shortpass",
+        email: "shortpass@example.com",
+        password: "short",
+      };
+
+      const response = await request(app)
+        .post("/api/auth/register")
+        .send(userData)
+        .expect(400);
+
+      expect(response.body.message).toContain("at least 8 characters");
+    });
+
     it("should fail with duplicate email", async () => {
       const userData = {
         username: "testuser1",
