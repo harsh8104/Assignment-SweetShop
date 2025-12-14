@@ -158,16 +158,11 @@ const loginUser = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user && (await user.matchPassword(password))) {
-      if (user.isAdmin) {
-        user.isAdmin = false;
-        await user.save();
-      }
-
       res.json({
         _id: user._id,
         username: user.username,
         email: user.email,
-        isAdmin: false,
+        isAdmin: user.isAdmin,
         token: generateToken(user._id),
       });
     } else {

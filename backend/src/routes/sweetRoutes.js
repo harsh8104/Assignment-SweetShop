@@ -20,7 +20,7 @@ router.route("/").get(protect, getAllSweets).post(protect, admin, createSweet);
 
 router
   .route("/:id")
-  .get(getSweetById)
+  .get(protect, getSweetById)
   .put(protect, admin, updateSweet)
   .delete(protect, admin, deleteSweet);
 

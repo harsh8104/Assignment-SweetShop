@@ -27,14 +27,6 @@ const protect = async (req, res, next) => {
       // Get user from token
       req.user = await User.findById(decoded.id).select("-password");
 
-      if (req.user && req.user.isAdmin) {
-        const isSuperAdmin = req.user.email === SUPER_ADMIN_EMAIL;
-        if (!isSuperAdmin) {
-          req.user.isAdmin = false;
-          await req.user.save();
-        }
-      }
-
       if (!req.user) {
         return res.status(401).json({ message: "User not found" });
       }

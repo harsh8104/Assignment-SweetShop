@@ -157,7 +157,7 @@ describe("Sweet API Tests", () => {
         {
           name: "Dark Chocolate",
           category: "Chocolate",
-          price: 4.99,
+          price: 4.2,
           quantity: 30,
         },
         {
@@ -437,9 +437,7 @@ describe("Sweet API Tests", () => {
     });
 
     it("should fail without authentication", async () => {
-      await request(app)
-        .get(`/api/sweets/${existingSweetId}`)
-        .expect(401);
+      await request(app).get(`/api/sweets/${existingSweetId}`).expect(401);
     });
 
     it("should return 404 for missing sweet", async () => {
