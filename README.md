@@ -309,37 +309,37 @@ Assignment/
 
 ### Login Page
 
-![Login Page](![alt text](image.png))
+![Login Page](image.png)  
 _User-friendly login interface with validation_
 
 ### Registration Page
 
-![Registration](![alt text](image-1.png))
+![Registration Page](image-1.png)  
 _New user registration with password confirmation_
 
 ### Home Dashboard
 
-![Home Dashboard](![alt text](image-2.png))
+![Home Dashboard](image-2.png)  
 _Main dashboard showing all available sweets with search and filter_
 
 ### Search & Filter
 
-![Search](![alt text](image-3.png))
+![Search and Filter](image-7.png)  
 _Advanced search by name, category, and price range_
 
 ### Purchase Interface
 
-![Purchase]![alt text](image-4.png)
+![Purchase Interface](image-4.png)  
 _Sweet card with quantity selector and purchase button_
 
 ### Admin Panel
 
-![Admin Panel]![alt text](image-5.png)
+![Admin Panel](image-5.png)  
 _Admin dashboard for inventory management_
 
 ### Add/Edit Sweet
 
-![Add Sweet]![alt text](image-6.png)
+![Add or Edit Sweet](image-6.png)  
 _Modal form for adding or updating sweets_
 
 **Note**: Screenshots will be added after running the application locally. To generate screenshots:
@@ -348,5 +348,3 @@ _Modal form for adding or updating sweets_
 2. Create a `screenshots` folder in the root directory
 3. Take screenshots of each page
 4. Save them with the names shown above
-
-
