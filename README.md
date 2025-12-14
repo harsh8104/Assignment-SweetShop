@@ -87,11 +87,19 @@ cd backend
 # Run all tests
 npm test
 
+# Run all tests serially (helpful on limited resources/CI)
+npm test -- --runInBand
+
 # Run tests with coverage report
 npm run test:coverage
 
 # Watch mode for TDD
 npm run test:watch
+
+#### Latest Backend Test Results
+
+Command: npm test -- --runInBand
+Result: 2 suites passed, 40 tests passed, 0 failed, 0 snapshots (runtime ~17s). Note: an expected "jwt malformed" warning appears when exercising the invalid-token path.
 ```
 
 **Test Coverage**: Backend includes comprehensive test suites for:
