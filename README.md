@@ -1,5 +1,7 @@
 # Sweet Shop Management System
 
+**Live Frontend**: https://sweetshop-frontend-9q90.onrender.com/login
+
 A full-stack MERN (MongoDB, Express.js, React.js, Node.js) application for managing a sweet shop with user authentication, inventory management, and purchase functionality.
 
 ## Project Overview
