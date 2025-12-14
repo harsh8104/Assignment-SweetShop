@@ -309,37 +309,37 @@ Assignment/
 
 ### Login Page
 
-![Login Page](screenshots/login.png)
+![Login Page](![alt text](image.png))
 _User-friendly login interface with validation_
 
 ### Registration Page
 
-![Registration](screenshots/register.png)
+![Registration](![alt text](image-1.png))
 _New user registration with password confirmation_
 
 ### Home Dashboard
 
-![Home Dashboard](screenshots/home.png)
+![Home Dashboard](![alt text](image-2.png))
 _Main dashboard showing all available sweets with search and filter_
 
 ### Search & Filter
 
-![Search](screenshots/search.png)
+![Search](![alt text](image-3.png))
 _Advanced search by name, category, and price range_
 
 ### Purchase Interface
 
-![Purchase](screenshots/purchase.png)
+![Purchase]![alt text](image-4.png)
 _Sweet card with quantity selector and purchase button_
 
 ### Admin Panel
 
-![Admin Panel](screenshots/admin.png)
+![Admin Panel]![alt text](image-5.png)
 _Admin dashboard for inventory management_
 
 ### Add/Edit Sweet
 
-![Add Sweet](screenshots/add-sweet.png)
+![Add Sweet]![alt text](image-6.png)
 _Modal form for adding or updating sweets_
 
 **Note**: Screenshots will be added after running the application locally. To generate screenshots:
@@ -349,14 +349,4 @@ _Modal form for adding or updating sweets_
 3. Take screenshots of each page
 4. Save them with the names shown above
 
-## License
 
-This project is for educational purposes.
-
-## Author
-
-Developed as part of a TDD coding kata assessment.
-
----
-
-_Built with ❤️ using MERN Stack and Test-Driven Development_
